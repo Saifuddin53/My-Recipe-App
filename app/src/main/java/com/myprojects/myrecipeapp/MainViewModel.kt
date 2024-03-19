@@ -16,6 +16,10 @@ class MainViewModel: ViewModel() {
     private val _categoryState = mutableStateOf(RecipeState())
     val categoryState: State<RecipeState> = _categoryState
 
+    init {
+        getResponse()
+    }
+
     private fun getResponse() {
         viewModelScope.launch {
             try {
@@ -28,7 +32,7 @@ class MainViewModel: ViewModel() {
             }catch (e: Exception) {
                 _categoryState.value = _categoryState.value.copy(
                     loading = false,
-                    error("${e.message}")
+                    error = "Error fetching categories ${e.message}"
                 )
             }
         }

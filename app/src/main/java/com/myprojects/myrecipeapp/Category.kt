@@ -1,7 +1,7 @@
 package com.myprojects.myrecipeapp
 
 data class Category(
-    val id: Int,
+    val idCategory: String,
     val strCategory: String,
     val strCategoryThumb: String,
     val strCategoryDescription: String
