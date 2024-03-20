@@ -9,6 +9,7 @@ private val retrofit: Retrofit = Retrofit.Builder().baseUrl("https://www.themeal
     .build()
 
 val retrofitService: ApiService = retrofit.create(ApiService::class.java)
+
 interface ApiService {
     @GET("categories.php")
     suspend fun getCategories(): CategoriesResponse
